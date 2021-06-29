@@ -1,0 +1,82 @@
+{% extends "index.twig" %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark black-navbar">
+	<div class="col-md-1" style="background-color: transparent; max-width: 75px; padding-left: 0px">
+		<img style="height: 40px; width: 40px; padding: 0;" src="logo.png" class="navbar-brand">
+	</div>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="col-md-11" style="padding-left: 0px">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="col-md-2" style="background-color: transparent; padding-left: 0px; width: 200px;">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/draw">Draw</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/chat">Chat</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4" style="background-color: transparent;">
+				<ul class="navbar-nav" style="width: 100%;">
+					<form action="/search" method="POST">
+						<input type="text" placeholder="Search" name="search" style="padding: 5px;">
+					</form>
+				</ul>
+			</div>
+			<div class="col-md-5" style="background-color: transparent;"></div>
+			<div class="col-md-1 text-right" style="padding-right: 0px;">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">Log out</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid" style="background-color: #EFD7DC;">
+	<div class="row h-100">
+		<div class="col-md-1" style="background-color: transparent; max-width: 75px;"></div>
+		<div class="col-md-2" style="background-color: #161616;">
+			<nav class="nav flex-column">
+		  		<a style="margin-top: 15px;" class="nav-link text" href="/home">Overview</a>
+		  		<a class="nav-link text" href="/edit_info">Edit profile</a>
+		  		<a class="nav-link text" href="/edit_photo">Edit photo</a>
+		  		<a class="nav-link text" href="/change_password">Change password</a>
+			</nav>
+		</div>
+		<div class="col-md-2" style="background-color: transparent;"></div>
+		<div class="col-md-5" align="center" style="background-color: #f5f5f5; min-width: 500px">
+			<div style="margin-top: 50px;">
+	            <img style="margin-top: 30px; width: 70%; max-height: 350px; max-width: 350px;" src="/uploads/{{photo}}" class="rounded" alt="Image">
+	            <div class="row">
+	               	<div class="col-4" align="right">
+	                	<b>
+		                	<p style="margin-top: 50px">Nickname: </p>
+		                	<p>Gender: </p>
+		                	<p>Birth: </p>
+		                	<p>City: </p>
+		                	<p>Description: </p>
+		                </b>
+	                </div>
+	                <div class="col-8" align="left">
+	                	<p style="margin-top: 50px">{{ nickname }}</p>
+				        <p>{{ gender }}</p>
+				        <p>{{ birth }}</p>
+				        <p>{{ city }}</p>
+				        <p>{{ description }}</p>
+				    </div>
+				</div>
+			</div>
+        </div>
+        <div class="col-md-2" style="background-color: transparent;"></div>
+	</div>
+</div>
+{% endblock %}

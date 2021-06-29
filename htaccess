@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9-_]+)$ index.php?page=$1 [NC,L,QSA]
+
+RewriteRule ^([a-zA-Z0-9-_]+)\/skip\/([0-9]+)$ index.php?page=$1&index=$2 [NC,L,QSA]
+RewriteRule ^([a-zA-Z0-9-_]+)\/add\/([0-9]+)$ index.php?page=$1&add=$2 [NC,L,QSA]
+RewriteRule ^([a-zA-Z0-9-_]+)\/open\/([0-9]+)$ index.php?page=$1&open=$2 [NC,L,QSA]

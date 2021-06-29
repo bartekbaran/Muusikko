@@ -1,0 +1,72 @@
+{% extends "index.twig" %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark black-navbar">
+	<div class="col-md-1" style="background-color: transparent; max-width: 75px; padding-left: 0px">
+		<img style="height: 40px; width: 40px; padding: 0;" src="logo.png" class="navbar-brand">
+	</div>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="col-md-11" style="padding-left: 0px">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="col-md-2" style="background-color: transparent; padding-left: 0px; width: 200px;">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/draw">Draw</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/chat">Chat</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4" style="background-color: transparent;">
+				<ul class="navbar-nav" style="width: 100%;">
+					<form action="/search" method="POST">
+						<input type="text" placeholder="Search" name="search" style="padding: 5px;">
+					</form>
+				</ul>
+			</div>
+			<div class="col-md-5" style="background-color: transparent;"></div>
+			<div class="col-md-1 text-right" style="padding-right: 0px;">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">Log out</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<div class="background" style="background-color: #EFD7DC">
+	<div class="container-fluid">
+		<div class="row h-100">
+			<div class="col-md-1" style="background-color: transparent; max-width: 75px;">
+            </div>
+			<div class="col-md-2" style="background-color: #161616;">
+				<nav class="nav flex-column">
+					<p class="nav-link text" style="margin-top: 15px; margin-bottom: 0px;">Kontakty:</p>
+		  			{{ showContacts() }}
+				</nav>
+			</div>
+			<div class="col-md-2" style="background-color: transparent;">
+            </div>
+			<div class="col-md-5" align="center" style="background-color: #f5f5f5;">
+				<div class="container-fluid h-75" style="overflow: scroll;">
+	                {{ showChat() }}
+				</div>
+				{% if flag == true %}
+					<form action="/chat/open/{{ receiver }}" method="POST">
+						<input type="text" placeholder="Message" name="message" requierd>
+						<input type="submit" class="button brown-button" value="Send">
+	           	 	</form>
+	           	{% endif %}
+           	</div>
+            <div class="col-md-2" style="background-color: transparent;"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

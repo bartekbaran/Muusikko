@@ -1,0 +1,37 @@
+{% extends "index.twig" %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark black-navbar">
+	<img style="height: 42px; width: 42px; padding: 0;" src="/logo.png" class="navbar-brand">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/draw">Draw</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/chat">Chat</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="/logout">Log out</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<div class="background">
+	<div class="containter text-center">
+		<h1><b>Confirmation</b></h1>
+		<p style="margin-bottom: 10px">Do you want to add more informations?</p>
+    	<a href="/add_info" class="button brown-button">Yes</a>
+		<a href="/home" class="button brown-button">No</a>
+	</div>
+</div>
+{% endblock %}
